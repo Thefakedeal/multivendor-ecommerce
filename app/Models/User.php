@@ -40,4 +40,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    const ROLE_USER = 0;
+    const ROLE_VENDOR = 1;
+    const ROLE_ADMIN = 2;
+
+    const ROLES = array('User','Vendor','Admin');
+
+    public function getRoleAttribute(){
+        switch($this->user_role){
+            case 0:
+                return 'User';
+            case 1:
+                return 'Vendor';
+            case 2:
+                return 'Admin';
+            default:
+                return 'User';
+        }
+    }
 }
