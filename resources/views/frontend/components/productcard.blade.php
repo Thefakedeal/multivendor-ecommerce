@@ -1,4 +1,4 @@
-<div class="card m-1 my-2 product-card">
+<div class="card m-1 my-2 product-card shadow-sm">
 
     <!--Card image-->
     <div class="view overlay">

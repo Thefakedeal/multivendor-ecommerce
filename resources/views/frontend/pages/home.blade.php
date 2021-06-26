@@ -4,58 +4,11 @@
 
 
     <!--Section: Products v.3-->
-    <section class="text-center mb-4" id="products">
-
-        <!--Grid row-->
-        <div class="row wow fadeIn gy-2">
-          @foreach ($products as $product)
-            <div class="col-lg-3 col-md-6">
-                @include('frontend.components.productcard',['product'=>$product])
-            </div>
-          @endforeach
-        </div>
-        <!--Grid row-->
-
-    </section>
+    @include('frontend.components.productrow',['products'=>$products])
     <!--Section: Products v.3-->
-
     <!--Pagination-->
     <nav class="d-flex justify-content-center wow fadeIn">
-        <ul class="pagination pg-blue">
-
-            <!--Arrow left-->
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-
-            <li class="page-item active">
-                <a class="page-link" href="#">1
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">5</a>
-            </li>
-
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-        </ul>
+        {{ $products->render('pagination::bootstrap-4') }}
     </nav>
     <!--Pagination-->
 @endsection

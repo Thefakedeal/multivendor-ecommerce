@@ -16,7 +16,6 @@
             <div class="view"
                 style="background-image: url('{{ asset('images/carousel1.jpg') }}'); background-repeat: no-repeat; background-size: cover; background-position:center;">
 
-                <!-- Mask & flexbox options-->
                 <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
 
                     <!-- Content -->
@@ -36,7 +35,6 @@
                     <!-- Content -->
 
                 </div>
-                <!-- Mask & flexbox options-->
 
             </div>
         </div>
