@@ -24,18 +24,20 @@
 
 </head>
 
-<body style="">
+<body style="min-height: 100vh;display:flex;flex-direction:column;">
 
     <!-- Navbar -->
     @include('frontend.components.navbar')
     <!-- Navbar -->
 
-    <!--Carousel Wrapper-->
-    @yield('hero')
-    <!--/.Carousel Wrapper-->
+    <div class="w-100">
+        <!--Carousel Wrapper-->
+        @yield('hero')
+        <!--/.Carousel Wrapper-->
+    </div>
 
     <!--Main layout-->
-    <main>
+    <main style="flex:1" class="py-4">
         <div class="container-fluid py-4">
             @yield('content')
             @stack('content')

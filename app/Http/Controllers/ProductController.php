@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,9 +14,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $product_categories = ProductCategory::all();
+        $products = Product::with(['product_category'])
+            ->when($request->product_category_id, function(Builder $query,$category_id){
+                return $query->where('product_category_id',$category_id);
+            })
+            ->when($request->name, function(Builder $query, $name){
+                return $query->where('name','LIKE','%'.$name.'%');
+            })->paginate(12);
+        return view('frontend.products.index',compact('product_categories','products'));
     }
 
     /**
@@ -46,7 +56,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['vendor.products.product_category','product_category'])->findOrFail($id);
+        $product = Product::with(['vendor.products'=>function($query) use($id){
+            return $query->whereKeyNot($id)->with(['product_category']);
+        },'product_category'])->findOrFail($id);
         return view('frontend.products.show',compact('product'));
     }
 

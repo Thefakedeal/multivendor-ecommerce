@@ -2,8 +2,8 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="{{ route('frontend.home') }}" target="_blank">
-            <strong class="blue-text">{{ config('app.name', 'Laravel') }}</strong>
+        <a class="navbar-brand waves-effect" href="{{ route('frontend.home') }}">
+            <strong class="lead">{{ config('app.name', 'Laravel') }}</strong>
         </a>
 
         <!-- Collapse -->
@@ -21,10 +21,10 @@
                     <a class="nav-link waves-effect" href="{{ route('frontend.home') }}">Home
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="" target="_blank">About MDB</a>
+                <li class="nav-item @if(Request::routeIs('frontend.products.index')) active @endif">
+                    <a class="nav-link waves-effect" href="{{ route('frontend.products.index') }}">Products
+                    </a>
                 </li>
-
             </ul>
 
             <!-- Right -->
