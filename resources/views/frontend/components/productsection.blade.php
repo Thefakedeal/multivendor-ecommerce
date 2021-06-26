@@ -40,13 +40,19 @@
             <p>{{ $product->description }}</p>
         @endif
 
-        <form class="d-flex justify-content-left">
+        <form  action="{{ route('frontend.cart.store') }}" method="POST" class="d-flex justify-content-left">
+          @csrf
+          <input type="hidden" name="product_id" value="{{ $product->id }}">
           <!-- Default input -->
-          <input type="number" value="1" min="1" aria-label="Search" class="form-control" style="width: 100px">
+          <input name="quantity" type="number" value="1" min="1" aria-label="Search" class="form-control" style="width: 100px">
           <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
             <i class="fas fa-shopping-cart ml-1"></i>
           </button>
-
+          @error('quantity')
+            <small class="text-danger">
+              {{ $message }}
+            </small>
+          @enderror
         </form>
 
       </div>

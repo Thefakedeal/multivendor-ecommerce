@@ -29,7 +29,6 @@
     <!-- Navbar -->
     @include('frontend.components.navbar')
     <!-- Navbar -->
-
     <div class="w-100">
         <!--Carousel Wrapper-->
         @yield('hero')
@@ -39,6 +38,7 @@
     <!--Main layout-->
     <main style="flex:1" class="py-4">
         <div class="container-fluid py-4">
+            @include('frontend.components.message')
             @yield('content')
             @stack('content')
         </div>

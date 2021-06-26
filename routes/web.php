@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ Route::group([
 ], function(){
     Route::get('/',[PagesController::class,'index'])->name('home');
     Route::resource('products',ProductController::class)->only(['index','show']);
+    Route::resource('cart',CartController::class)->only(['index','store','destroy']);
 });
 
 Auth::routes();
