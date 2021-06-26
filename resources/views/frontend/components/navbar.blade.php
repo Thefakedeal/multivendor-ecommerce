@@ -39,6 +39,7 @@
                             </a>
                         </li>
                     @endif
+                    
                 @else
                     <li class="nav-item">
                         <a class="nav-link waves-effect">
@@ -46,6 +47,18 @@
                             <span class="clearfix d-none d-sm-inline-block mx-1"> Cart </span>
                         </a>
                     </li>
+                    @if (Route::has('logout'))
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="nav-link btn-link border border-light rounded waves-effect"
+                                >
+                                <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+                                <span class="mx-1 clearfix d-none d-sm-inline-block">Logout</span>
+                            </button>
+                        </form>
+                    </li>
+                    @endif
                 @endguest
             </ul>
 
