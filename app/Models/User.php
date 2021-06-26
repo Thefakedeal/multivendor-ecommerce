@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function scopeVendor(Builder $query){
         return $query->where('user_role', $this::ROLE_VENDOR);
     }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

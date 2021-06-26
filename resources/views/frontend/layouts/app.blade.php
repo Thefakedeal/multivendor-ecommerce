@@ -31,7 +31,7 @@
     <!-- Navbar -->
 
     <!--Carousel Wrapper-->
-    @include('frontend.components.carousel')
+    @yield('hero')
     <!--/.Carousel Wrapper-->
 
     <!--Main layout-->

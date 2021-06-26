@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::group([
     'as'=>'frontend.'
 ], function(){
     Route::get('/',[PagesController::class,'index'])->name('home');
+    Route::resource('products',ProductController::class)->only(['index','show']);
 });
 
 Auth::routes();

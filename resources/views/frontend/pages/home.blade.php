@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('hero')
+    @include('frontend.components.carousel')  
+@endsection
+
+
 @section('content')
 
 

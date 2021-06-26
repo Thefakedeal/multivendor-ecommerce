@@ -14,6 +14,10 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class);
     }
 
+    public function vendor(){
+        return $this->belongsTo(User::class,'user_id');
+    }
+
     public function getDiscountedPriceAttribute(){
         return ($this->price - $this->discount);
     }
