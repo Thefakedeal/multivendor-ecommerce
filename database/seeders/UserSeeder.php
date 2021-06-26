@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
         ->state(
             fn()=>[
                 'user_role'=> 1,
-                'image' => 'images/tests/vendors/vendor'.rand(1,17).'.jpg',
+                'image' => '/images/tests/vendors/vendor'.rand(1,17).'.jpg',
             ]
         )->create();
     }
