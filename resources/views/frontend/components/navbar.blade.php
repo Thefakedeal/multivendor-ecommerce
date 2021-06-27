@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
 
         <!-- Brand -->

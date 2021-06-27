@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-<div class="container dark-grey-text mt-5">
+<div class="container dark-grey-text ">
 
     @include('frontend.components.productsection',['product'=>$product])
 

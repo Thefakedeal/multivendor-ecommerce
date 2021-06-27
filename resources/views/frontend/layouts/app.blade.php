@@ -36,7 +36,7 @@
     </div>
 
     <!--Main layout-->
-    <main style="flex:1" class="py-4">
+    <main style="flex:1">
         <div class="container-fluid py-4">
             @include('frontend.components.message')
             @yield('content')

@@ -1,4 +1,4 @@
-<div class="row wow fadeIn py-4">
+<div class="row wow fadeIn ">
 
     <!--Grid column-->
     <div class="col-md-6 mb-4">
@@ -40,7 +40,7 @@
             <p>{{ $product->description }}</p>
         @endif
 
-        <form  action="{{ route('frontend.cart.store') }}" method="POST" class="d-flex justify-content-left">
+        <form  action="{{ route('user.cart.store') }}" method="POST" class="d-flex justify-content-left">
           @csrf
           <input type="hidden" name="product_id" value="{{ $product->id }}">
           <!-- Default input -->

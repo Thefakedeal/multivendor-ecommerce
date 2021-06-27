@@ -23,6 +23,12 @@ Route::group([
 ], function(){
     Route::get('/',[PagesController::class,'index'])->name('home');
     Route::resource('products',ProductController::class)->only(['index','show']);
+});
+
+Route::group([
+    'as'=>'user.',
+    'middleware'=>'auth'
+], function(){
     Route::resource('cart',CartController::class)->only(['index','store','destroy']);
 });
 

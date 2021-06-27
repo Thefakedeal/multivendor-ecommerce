@@ -1,4 +1,4 @@
-<div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
 
     <!--Indicators-->
     <ol class="carousel-indicators">
