@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    const DELIVERY_CHARGE = 0;
+    const DELIVERY_CHARGE = 100;
 
     protected $attributes = [
         'delivery_charge' => self::DELIVERY_CHARGE,
@@ -40,5 +40,9 @@ class Order extends Model
 
     public function order_items(){
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

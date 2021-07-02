@@ -93,8 +93,8 @@
                     </tfoot>
                 </table>
                 <div class="d-flex justify-content-end my-4">
-                    <a href="{{ route('user.orders.create') }}" class=" btn btn-danger btn-sm">
-                        <i class="fa fa-trash" aria-hidden="true"></i> Order
+                    <a href="{{ route('user.orders.create') }}" class=" btn btn-primary btn-sm">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> Order
                     </a>
                 </div>
             </div>

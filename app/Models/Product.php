@@ -45,4 +45,12 @@ class Product extends Model
     public function getDiscountedPriceAttribute(){
         return ($this->price - $this->discount);
     }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class,'order_items');
+    }
+
+    public function order_items(){
+        return $this->hasMany(OrderItem::class);
+    }
 }
