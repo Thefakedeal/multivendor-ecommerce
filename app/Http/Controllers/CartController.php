@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\CartService;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -11,9 +12,11 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $cart_items = $request->user()->cart_items()->with(['product_category'])->get();
+        $total = CartService::getCartTotal($cart_items);
+        return view('frontend.cart.index',compact('cart_items','total'));
     }
 
     /**

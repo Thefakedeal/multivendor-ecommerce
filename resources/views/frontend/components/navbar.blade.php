@@ -42,7 +42,7 @@
                     
                 @else
                     <li class="nav-item">
-                        <a class="nav-link waves-effect">
+                        <a href="{{ route('user.cart.index') }}" class="nav-link waves-effect">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="clearfix d-none d-sm-inline-block mx-1"> Cart </span>
                         </a>
