@@ -1,4 +1,4 @@
-<a href="{{ route('frontend.products.show',$product->id) }}">
+<a href="{{ route('frontend.products.show',$product->slug) }}">
     <div class="card m-1 my-2 product-card shadow-sm">
     
         <!--Card image-->

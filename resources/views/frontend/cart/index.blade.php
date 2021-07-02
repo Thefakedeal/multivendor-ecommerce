@@ -57,7 +57,7 @@
                                  
                                 </td>
                                 <td>
-                                    <a href="{{ route('frontend.products.show',$item->id) }}" class="link">
+                                    <a href="{{ route('frontend.products.show',$item->slug) }}" class="link">
                                         {{ $item->name }}
                                     </a>
                                 </td>

@@ -51,14 +51,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $product = Product::with(['vendor.products'=>function($query) use($id){
-            return $query->whereKeyNot($id)->with(['product_category']);
-        },'product_category'])->findOrFail($id);
+        $product = Product::with(['vendor.products'=>function($query) use($slug){
+            return $query->where('slug','!=',$slug)->with(['product_category']);
+        },'product_category'])->where('slug',$slug)->firstOrFail();
         return view('frontend.products.show',compact('product'));
     }
 

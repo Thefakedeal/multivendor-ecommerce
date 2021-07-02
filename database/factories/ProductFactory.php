@@ -25,10 +25,10 @@ class ProductFactory extends Factory
     {
         $price = rand(100,10000);
         return [
-           'name'=> $this->faker->catchPhrase,
+           'name'=> $this->faker->company,
            'description'=>$this->faker->boolean()?$this->faker->realTextBetween(200,400):null,
            'price' => $price,
-           'discount' => $this->faker->boolean()?(int)$price/rand(10,100):0,
+           'discount' => $this->faker->boolean()?(int)rand(0.1*$price,0.2*$price):0,
            'product_category_id' => rand(1,ProductCategory::count()),
            'user_id' => User::query()->vendor()->get()->random()->id,
            'image'=> '/images/tests/products/product'.rand(1,28).'.jpg',
