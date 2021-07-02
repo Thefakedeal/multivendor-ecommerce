@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('street_name')->nullable();
             $table->string('ward');
             $table->string('municipality');
+            $table->double('delivery_charge')->default(0);
             $table->timestamps();
         });
     }

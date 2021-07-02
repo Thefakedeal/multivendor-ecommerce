@@ -8,4 +8,37 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    const DELIVERY_CHARGE = 0;
+
+    protected $attributes = [
+        'delivery_charge' => self::DELIVERY_CHARGE,
+    ];
+
+    const STATUS = [
+        0 => 'Pending',
+        1 => 'Delivering',
+        2 => 'Delivered',
+        3 => 'Cancelled'
+    ];
+
+    const STATUS_PENDING = 0;
+    const STATUS_DELIVERING = 1;
+    const STATUS_DELIVERED = 2;
+    const STATUS_CANCELLED = 3;
+
+    const MUNICIPALS = array('Dharan');
+
+    public function getStatusAttribute()
+    {
+        return self::STATUS[$this->status] ?? 'Pending';
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class,'order_items')->as('order_item')->withPivot('quantity')->withTimestamps();;
+    }
+
+    public function order_items(){
+        return $this->hasMany(OrderItem::class);
+    }
 }

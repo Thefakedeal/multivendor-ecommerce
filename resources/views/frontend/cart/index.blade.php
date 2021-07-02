@@ -92,6 +92,11 @@
                         </tr>
                     </tfoot>
                 </table>
+                <div class="d-flex justify-content-end my-4">
+                    <a href="{{ route('user.orders.create') }}" class=" btn btn-danger btn-sm">
+                        <i class="fa fa-trash" aria-hidden="true"></i> Order
+                    </a>
+                </div>
             </div>
         </div>
     </div>

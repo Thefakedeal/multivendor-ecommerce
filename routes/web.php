@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,7 @@ Route::group([
 ], function(){
     Route::delete('cart/clear',[CartController::class,'clear'])->name('cart.clear');
     Route::resource('cart',CartController::class)->only(['index','store','destroy']);
+    Route::resource('orders',OrderController::class)->only(['index','create','store','show']);
 });
 
 Auth::routes();

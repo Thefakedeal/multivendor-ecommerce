@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'name'=>'Admin',
             'email'=>'admin@admin.com',
             'password'=> '$2y$10$q0ww0u0t5v9kCSDGjyuSue6Rm7tMiSx.PTTxHdwwBwR5tjFMSSozu', //admin
+            'number' => $this->faker->unique()->phoneNumber,
             'user_role'=>2
         ]);
 
@@ -35,6 +36,7 @@ class UserSeeder extends Seeder
             'email'=>'veldor@vendor.com',
             'password'=> '$2y$10$Nt96296z4z/akCvGbAuLx.FxupnBspHOxnPj0DHW3OoZLepRFPi4y', //vendor
             'image' => 'images/tests/vendors/vendor1.jpg',
+            'number' => $this->faker->unique()->phoneNumber,
             'user_role'=>1
         ]);
 
@@ -42,7 +44,9 @@ class UserSeeder extends Seeder
             'name'=>'User',
             'email'=>'user@user.com',
             'password'=> '$2y$10$SEU.oCFLADxFU.VLmu662uLFAc/bOtAG9w6Odb1Qhh6dEea9DFdOy', //user
-            'user_role'=>0
+            'number' => $this->faker->unique()->phoneNumber,
+            'user_role'=>0,
+
         ]);
 
         User::factory()->count(100)
