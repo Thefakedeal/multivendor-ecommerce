@@ -88,8 +88,14 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $request->user()->cart_items()->detach($id);
+        return redirect()->back()->with('success', 'Removed From Cart');
+    }
+
+    public function clear(Request $request){
+        $request->user()->cart_items()->detach();
+        return redirect()->back()->with('success','Cart has been cleared');
     }
 }

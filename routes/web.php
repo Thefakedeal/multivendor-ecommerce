@@ -29,6 +29,7 @@ Route::group([
     'as'=>'user.',
     'middleware'=>'auth'
 ], function(){
+    Route::delete('cart/clear',[CartController::class,'clear'])->name('cart.clear');
     Route::resource('cart',CartController::class)->only(['index','store','destroy']);
 });
 

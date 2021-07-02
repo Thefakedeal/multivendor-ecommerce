@@ -2,6 +2,17 @@
 
 @section('content')
     <div class="container">
+        <form action="{{ route('user.cart.clear') }}" onsubmit="return confirm('Are You Sure You Want To Clear Cart?')" method="post">
+            @csrf
+            @method('delete')
+            <div class="d-flex justify-content-end my-4">
+                <button class=" btn btn-danger btn-sm">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Clear Cart
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
         <div class="card">
             <div class="card-header">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i> Cart
@@ -63,7 +74,11 @@
                                     {{ number_format($item->cart->quantity * $item->discounted_price,2) }}
                                 </td>
                                 <td>
-                                    Del
+                                    <form action="{{ route('user.cart.destroy',$item->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
