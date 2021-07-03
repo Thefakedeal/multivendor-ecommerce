@@ -39,7 +39,7 @@ class Product extends Model
     }
 
     public function vendor(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id')->withTrashed();
     }
 
     public function getDiscountedPriceAttribute(){

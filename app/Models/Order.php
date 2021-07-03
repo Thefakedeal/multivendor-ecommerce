@@ -35,7 +35,7 @@ class Order extends Model
     }
 
     public function products(){
-        return $this->belongsToMany(Product::class,'order_items')->as('order_item')->withPivot('quantity')->withTimestamps();;
+        return $this->belongsToMany(Product::class,'order_items')->as('order_item')->withPivot('quantity')->withTimestamps()->withTrashed();
     }
 
     public function order_items(){
@@ -43,6 +43,6 @@ class Order extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }
