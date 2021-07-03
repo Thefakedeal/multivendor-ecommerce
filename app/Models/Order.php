@@ -29,9 +29,13 @@ class Order extends Model
 
     const MUNICIPALS = array('Dharan');
 
-    public function getStatusAttribute()
+    public function getOrderStatusAttribute()
     {
         return self::STATUS[$this->status] ?? 'Pending';
+    }
+
+    public function getCodeAttribute(){
+        return 'ODR-'.strtoupper(substr($this->municipality,0,3)).'-'.$this->id;
     }
 
     public function products(){

@@ -47,6 +47,12 @@
                             <span class="clearfix d-none d-sm-inline-block mx-1"> Cart </span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('user.orders.index') }}" class="nav-link waves-effect">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                            <span class="clearfix d-none d-sm-inline-block mx-1"> Orders </span>
+                        </a>
+                    </li>
                     @if (Route::has('logout'))
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">

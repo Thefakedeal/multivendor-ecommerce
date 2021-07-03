@@ -32,6 +32,7 @@ Route::group([
 ], function(){
     Route::delete('cart/clear',[CartController::class,'clear'])->name('cart.clear');
     Route::resource('cart',CartController::class)->only(['index','store','destroy']);
+    Route::put('order/{id}/cancel',[OrderController::class, 'cancel'])->name('order.cancel');
     Route::resource('orders',OrderController::class)->only(['index','create','store','show']);
 });
 
