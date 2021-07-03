@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
@@ -34,6 +35,13 @@ Route::group([
     Route::resource('cart',CartController::class)->only(['index','store','destroy']);
     Route::put('order/{id}/cancel',[OrderController::class, 'cancel'])->name('order.cancel');
     Route::resource('orders',OrderController::class)->only(['index','create','store','show']);
+});
+
+Route::group([
+    'as'=>'admin.',
+    'prefix'=>'admin'
+],function(){
+    Route::get('/', [AdminPagesController::class, 'home'])->name('home');
 });
 
 Auth::routes();
