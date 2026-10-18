@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,6 +39,13 @@ class Order extends Model
         return 'ODR-'.strtoupper(substr($this->municipality,0,3)).'-'.$this->id;
     }
 
+    public function getAddressAttribute(){
+        if($this->street_name){
+           return $this->street_name.', '.$this->municipality.'-'.$this->ward;
+        }
+        return $this->municipality.'-'.$this->ward;
+    }
+
     public function products(){
         return $this->belongsToMany(Product::class,'order_items')->as('order_item')->withPivot('quantity')->withTimestamps()->withTrashed();
     }
@@ -48,5 +56,21 @@ class Order extends Model
 
     public function user(){
         return $this->belongsTo(User::class)->withTrashed();
+    }
+
+    public function scopePending(Builder $query){
+        return $query->where('status',self::STATUS_PENDING);
+    }
+
+    public function scopeDelivered(Builder $query){
+        return $query->where('status',self::STATUS_DELIVERED);
+    }
+
+    public function scopeCancelled(Builder $query){
+        return $query->where('status',self::STATUS_CANCELLED);
+    }
+
+    public function scopeDelivering(Builder $query){
+        return $query->where('status',self::STATUS_DELIVERING);
     }
 }

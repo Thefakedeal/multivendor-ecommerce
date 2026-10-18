@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -30,8 +31,10 @@ class LoginController extends Controller
     protected function redirectTo(){
         $user = Auth::user();
         switch($user->user_role){
-            case 0:
+            case User::ROLE_USER:
                 return route('frontend.home');
+            case User::ROLE_ADMIN:
+                return route('admin.home');
             default:
                 return route('frontend.home');
         }

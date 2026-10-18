@@ -1,0 +1,32 @@
+/*:root{*/
+/*    --primary-color-dark: #d32f2f;*/
+/*    --primary-color: #f44336;*/
+/*    --primary-color-light: #ffcdd2;*/
+/*    --primary-color-text: #ffffff;*/
+/*    --accent-color: #536dfe;*/
+/*    --primary-text-color: #212121;*/
+/*    --secondary-text-color: #757575;*/
+/*    --divider-color: #bdbdbd;*/
+/*}*/
+
+.banner {
+    background:linear-gradient(0deg, rgba(29, 56, 106, 0.7), rgba(29, 56, 106, 0.7)), url('/img/tys-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    padding: 0rem 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Arial';
+}
+
+a{
+    text-decoration:none;
+}
+
+a:active{
+    text-decoration:none;   
+}
+
